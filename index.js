@@ -31,6 +31,15 @@ app.post("/short", async (req, res) => {
     }
   });
   
+
+
+// router.post('/shorten', async (req, res) => {
+
+    
+
+// })
+
+
   app.get("/:shortUrl", async (req, res) => {
     const short = await shortUrl.findOne({ short: req.params.shortUrl });
     if (short == null) return res.sendStatus(404);

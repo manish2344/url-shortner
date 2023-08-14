@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 // const nanoid  = require("nanoid");
 // const {nanoid} = require(nanoid);
-const {v4 : uuidv4} = require('uuid')
+const shortId = require('shortid')
+
 const shortSchema = new mongoose.Schema({
   full: {
     type: String,
@@ -10,7 +11,7 @@ const shortSchema = new mongoose.Schema({
   short: {
     type: String,
     required: true,
-    default: () => uuidv4(),
+    default: shortId.generate,
   },
   createdAt: {
     type: Date,
@@ -20,3 +21,6 @@ const shortSchema = new mongoose.Schema({
 });
 const shortUrl= mongoose.model("ShortUrl", shortSchema);
 module.exports = shortUrl;
+
+
+
